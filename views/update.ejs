@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Home Page</title>
+     
+</head>
+ 
+<body>
+    <form action="/update/<%= id %>" method="POST">
+        <input type="text" id="name" name="name" placeholder="Name"/>
+        <input type="text" id="unit_price" name="unit_price" placeholder="Unit Price"/>
+        <input type="text" id="quantity" name="quantity" placeholder="Quantity"/>
+        <textarea type="text" id="description" name="description" placeholder="Description"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script>
+    window.onload = function(){
+        document.getElementById("name").value = '<%= item.name %>';
+        document.getElementById("unit_price").value = '<%= item.unit_price %>';
+        document.getElementById("quantity").value = '<%= item.quantity %>';
+        document.getElementById("description").value = '<%= item.description %>';
+    }
+</script>
+</html>  

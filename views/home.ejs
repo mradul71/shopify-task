@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Home Page</title>
+    <style>
+        th, td{
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .export, .add, h1{
+            display: flex;
+            justify-content: center;
+            margin: 30px auto;
+        }
+        table{
+            display: flex;
+            justify-content: center;
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button{
+            width: 10rem;
+        }
+    </style>
+     
+</head>
+ 
+<body>
+    <h1>welcome to inventory</h1>
+    <a class="add" href="/additem">Add item to inventory</a>
+    <a class="export" href="/download">Export to CSV</a>
+    <table cellspacing="10px">
+        <tr>
+            <th>Item Id</th>
+            <th>Item name</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total Value</th>
+            <th>Description</th>
+            <th>Operations</th>
+        </tr>
+        <% data.map((item) => { %>
+            <tr key=<%= item.id %>>
+                <td><%= item.item_id %></td>
+                <td><%= item.name %></td>
+                <td><%= item.unit_price %></td>
+                <td><%= item.quantity %></td>
+                <td><%= item.value %></td>
+                <td class="desc"><%= item.description %></td>
+                <td>
+                    <a href='/delete/<%= item.id %>'>Delete</a>
+                    <br />
+                    <a href='/update/<%= item.id %>'>Update</a>
+                    <br />
+                    <a href='/view/<%= item.id %>'>view</a>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+    
+</body>
+</html>  
